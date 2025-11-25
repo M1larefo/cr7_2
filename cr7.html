@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Cristiano Ronaldo vs Lionel Messi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cr7.css">
+  </head>
+ 
+<style>
+div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+}
+.pitch {
+    cursor: pointer;
+    width: 100%;
+    height: 600px;
+    padding: 0%;
+    background: transparent;
+}
+.tit {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    position: absolute;
+    top: 0px;
+    align-items: center;
+    left: 5%;
+    width: 100%;
+}
+.goal {
+    cursor: pointer;
+    width: 10%;
+    height: 110px;
+    position: absolute;
+    rotate: 25deg;
+    left: 75%;
+    top: 200px;
+    background: transparent;
+}
+
+.goal2 {
+    cursor: pointer;
+    width: 10%;
+    height: 110px;
+    transform: scaleX(-1);
+    rotate: -25deg;
+    position: absolute;
+    left: 15%;
+    top: 200px;
+    background: transparent;
+}
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.go {
+    width: 12%;
+    min-width: 90px;
+    height: 70px;
+    align-items: center;
+    position: absolute;
+    top: 560px;
+    color: rgb(3, 6, 0);
+    font-size: xx-large;
+    font-weight: 700;
+    cursor: pointer;
+    background: linear-gradient(45deg, rgb(56, 207, 56), rgb(42, 165, 184));
+    border-radius: 20px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}
+.cr7-moving {
+    cursor: pointer;
+    width: 12%;
+    height: 210px;
+    position: absolute;
+    display: none;
+    left: 67%;
+    top: 140px;
+    background: transparent;
+    color: rgb(207, 74, 56);
+    animation: 1.5s ease-in-out 0s 1 normal cris;
+}
+.ball{
+    cursor: pointer;
+    width: 48px;
+    height: 45px;
+    position: absolute;
+    left: 47.4%;
+    top: 310px;
+    background: transparent;
+    display:none;
+   animation: 0.6s ease-in-out 0.5s 1 normal ball;
+}
+@keyframes shoot{
+ 0%{
+ left:46%;
+ top: 140px;
+ }
+ 100%{
+ left:44%;
+ rotate:15deg;
+ top: 140px;
+ }
+   
+}
+@keyframes pregoon{
+ 0%{
+ left:46%;
+ top: 140px;
+ }
+ 100%{
+ left: 32.6%;
+ top: 120px;
+ } 
+}
+@keyframes goon{
+ 0%{
+ left:32.6%;
+ top: 120px;
+ }
+  50%{
+ left:28%;
+ top: 120px;
+ } 
+ 100%{
+ left:32.6%;
+ top: 120px;
+ } 
+}
+
+
+@keyframes ball{
+ 0%{
+ left:47.4%;
+ top:310px
+ }
+25%{
+ left:42.4%;
+ top:190px;
+ rotate:90deg;
+ }
+
+  50%{
+left:32%;
+ top: 70px;
+ rotate:180deg;
+ }
+ 75%{
+ left:21%;
+ top:190px;
+ rotate:270deg;
+ }
+ 100%{
+ left:17%;
+ top: 280px;
+ rotate:360deg;
+ }
+   
+}
+
+@keyframes cris{
+ 0%{
+ left:67%;
+ top: 140px
+ }
+  10%{
+left:63%;
+ top: 130px
+ }
+ 20%{
+left:55%;
+ top: 150px
+ }
+ 30%{
+left:50%;
+ top: 140px
+ }
+ 40%{
+left:46%;
+ top: 155px
+ }
+  50%{
+left:58%;
+ top: 140px
+ }
+ 60%{
+left:47%;
+ top: 150px
+ }
+  70%{
+left:45%;
+ top: 120px
+ }
+ 80%{
+left:47%;
+ top: 160px
+ }
+  90%{
+left:50%;
+ top: 150px
+ }
+ 100%{
+ left:47%;
+ top: 130px;
+ }
+   
+}
+
+@keyframes messi{
+ 0%{
+ left:27%;
+ top: 140px
+ }
+  10%{
+left:33%;
+ top: 130px
+ }
+ 20%{
+left:35%;
+ top: 150px
+ }
+ 30%{
+left:29%;
+ top: 140px
+ }
+ 40%{
+left:32%;
+ top: 155px
+ }
+  50%{
+left:38%;
+ top: 140px
+ }
+  55%{
+left:35%;
+ top: 120px
+ }
+ 63%{
+left:25%;
+ top: 140px
+ }
+ 82%{
+ left:28%;
+ top: 140px;
+ }
+ 
+ 92%{
+ left:27%;
+ top: 100px;
+ }
+
+ 100%{
+ left:28%;
+ top: 140px;
+ }
+}
+.cr7-pregoon {
+    cursor: pointer;
+    width: 16%;
+    height: 210px;
+    position: absolute;
+    display:none;
+    left: 46%;
+    top: 140px;
+    animation: 0.68s ease-out normal 1 pregoon;
+    background: transparent;
+    transition: 1s ease-out;
+}
+
+.cr7-goon {
+    cursor: pointer;
+    width: 16%;
+    height: 210px;
+    position: absolute;
+    display:none;
+    left: 32.6%;
+    top: 120px;
+    animation: 0.5s ease-out  normal infinite goon;
+    background: transparent;
+}
+.speed1{
+       cursor: pointer;
+    position: absolute;
+ font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    left:65%;
+    bottom:185px;
+   
+}
+.speedinput{
+       cursor: pointer;
+    position: absolute;
+ font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+ width:90px;
+ padding-left: 2px;
+    font-size: 30px;
+    font-weight: 700;
+    left:72%;
+    bottom:212px;
+    border-radius: 10px;
+   
+}
+
+.speed2{
+       cursor: pointer;
+    position: absolute;
+ font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    left:79.6%;
+    bottom:184px;
+   
+}
+.set{
+  width: 8%;
+    min-width: 90px;
+    height: 45px;
+    position: absolute;
+    left:82.6%;
+    top: 495px;
+    color: rgb(255, 255, 255);
+    font-size: xx-large;
+    font-weight: 500;
+    cursor: pointer;
+    background: linear-gradient(35deg, rgb(8, 8, 7), rgb(255, 167, 3));
+    border-radius: 20px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}
+.goon{
+  width: 12%;
+    min-width: 110px;
+    height: 65px;
+    position: absolute;
+    left:22.6%;
+    top: 495px;
+    color: rgb(255, 0, 0);
+    font-size: xx-large;
+    font-weight: 500;
+    cursor: pointer;
+    background: rgb(207, 200, 200);
+    border-radius: 20px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}
+.siu{
+  width: 12%;
+    min-width: 110px;
+    height: 65px;
+    position: absolute;
+    left:5.6%;
+    top: 495px;
+    color: rgb(22, 7, 7);
+    font-size: xx-large;
+    font-weight: 700;
+    cursor: pointer;
+    background: linear-gradient(65deg, rgb(165, 165, 159), rgb(173, 156, 123));
+    border-radius: 20px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}
+
+.cr7-stand-copy, .cr7-stand {
+    cursor: pointer;
+    width: 16%;
+    height: 210px;
+    position: absolute;
+    left: 64%;
+    top: 140px;
+    background: transparent;
+    transition: 1s ease-out;
+}
+.cr7-stand{
+    display:none;
+animation: 0.5s ease-in-out 0s 1 normal shoot;
+}
+.messi-stand {
+    cursor: pointer;
+    width: 11%;
+    height: 180px;
+    position: absolute;
+    display: block;
+    left: 25%;
+    top: 170px;
+   
+    background: transparent;
+}
+.messi {
+    cursor: pointer;
+    width: 11%;
+    height: 180px;
+    position: absolute;
+    display: none;
+    left: 25%;
+    top: 170px;
+    animation: 2.5s ease-in-out 0s 1 normal messi;
+    background: transparent;
+}
+@media screen and (width <= 500px) {
+ .siu{
+    font-size: 26px;
+    font-weight: 700;
+    margin-right: 5px;
+ }
+ .goon{
+     left:5.6%;
+    top: 565px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-right: 5px;
+ }
+ .tit {
+   top: 20px;
+    font-size: 25px;
+    font-weight: 700;
+}
+.speedinput{
+     left:68%;
+    bottom:162px;
+}
+.speed2{
+     left:96%;
+    bottom:138px;
+}
+.set{
+    left:68.6%;
+    top: 600px;
+}
+.go{
+     font-size: 24px;
+}
+.ball{
+     width: 28px;
+    height: 25px;
+}
+.cr7-goon, .cr7-pregoon ,.cr7-stand , .cr7-stand-copy{
+    width:26%;
+}
+.cr7-stand , .cr7-stand-copy{
+    left:55%;
+}
+.cr7-moving{
+    width:20%;
+    left:55%;
+}
+.messi , .messi-stand{
+    width:15%;
+    left:22%;
+}
+}
+</style>
+  <body>
+   <div>
+
+<img class="pitch" alt="cr7" src="https://img.freepik.com/premium-vector/3d-football-field-soccer-field-championship-soccer-vector_689336-832.jpg">
+   <img class="goal" alt="goal" src="https://pngimg.com/d/football_goal_PNG19.png">
+   <img class="goal2" alt="goal" src="https://pngimg.com/d/football_goal_PNG19.png">
+   <img class="cr7-moving" alt="cr7" src="https://www.transparentpng.com/download/cristiano-ronaldo/ZQycU3-cristiano-ronaldo-transparent-picture.png">
+   <img class="cr7-stand-copy" alt="cr7" src="https://freepngimg.com/save/21633-cristiano-ronaldo-transparent-picture/550x650">
+   <img class="cr7-stand" alt="cr7" src="https://freepngimg.com/save/21633-cristiano-ronaldo-transparent-picture/550x650">
+   <img class="cr7-pregoon" alt="cr7" src="https://freepngimg.com/save/21633-cristiano-ronaldo-transparent-picture/550x650">
+   <img class="cr7-goon" alt="cr7" src="https://freepngimg.com/save/21633-cristiano-ronaldo-transparent-picture/550x650">
+   <img class="ball" alt="cr7" src="https://static.vecteezy.com/system/resources/thumbnails/045/547/351/small/soccer-ball-on-transparent-background-png.png">
+   <img class="messi-stand" alt="messi" src="https://www.pngfind.com/pngs/b/45-451791_free-png-download-lionel-messi-png-images-background.png">
+   <img class="messi" alt="messi" src="https://www.pngfind.com/pngs/b/45-451791_free-png-download-lionel-messi-png-images-background.png">
+  
+  </div>
+    <p class="tit">Cristiano Ronaldo vs Lionel Messi </p>
+    <p class="speed1">Speed: </p>
+    <input label="" title="a" placeholder="" class="speedinput">
+    <button class="set">SET</button>
+     <p class="speed2">x</p>
+     <button class="goon">КОНЧИТЬ</button>
+     <button class="siu">SIUUUU</button>
+     <audio src="orgasm-active.mp3" class="orgasm" preload="auto"></audio>
+     <audio src="b4c9fa6c4690507.mp3" class="cum" preload="auto"></audio>
+     <audio src="ronaldo-siuuuu.mp3" class="siuu" preload="auto"></audio>
+     <audio src="football-fans-chanting.mp3" class="tribune2" preload="áuto">ronaldo</audio>
+     <audio src="the-sound-of-a-cheering-crowd-of-fans.mp3" class="tribune" preload="áuto">ronaldo</audio>
+    <div class="box">
+<button class="go">GO</button>
+    </div>
+    <script src="cr7.js">const go=document.querySelector('.go')
+const cr7_moving = document.querySelector('.cr7-moving')
+const cr7_stand_copy = document.querySelector('.cr7-stand-copy')
+const cr7_stand = document.querySelector('.cr7-stand')
+const cr7_pregoon = document.querySelector('.cr7-pregoon')
+const cr7_goon = document.querySelector('.cr7-goon')
+const messi_stand=document.querySelector('.messi-stand')
+const messi=document.querySelector('.messi')
+const ball=document.querySelector('.ball')
+const speedinput=document.querySelector('.speedinput');
+const setspeed=document.querySelector('.set')
+const siu=document.querySelector('.siu')
+const siuu=document.querySelector('.siuu')
+const goon = document.querySelector('.goon');
+const orgasm = document.querySelector('.orgasm')
+const tribune = document.querySelector('.tribune');
+const tribune2 = document.querySelector('.tribune2');
+const cum = document.querySelector('.cum')
+let count=0;
+
+function init(){
+   
+go.addEventListener('click', () => {
+   
+   tribune2.currentTime=0.2;
+   tribune2.volume = 0.2;
+   tribune2.play()
+   console.log(count)
+     if(count % 2 == 0){
+      count++;
+      
+setTimeout(()=>{
+   if(count % 2 !== 0){
+   ball.style.display='block';
+      cr7_moving.style.display = 'none';
+    cr7_stand.style.display = 'block';
+     cr7_stand.style.left ='46%';
+  cr7_stand.style.top ='140px';
+  setTimeout(()=>{
+      if(count % 2 !== 0){
+  ball.style.left='17%';
+   ball.style.top='280px';
+    cr7_stand.style.display = 'none';
+ cr7_pregoon.style.display = 'block';
+ cr7_pregoon.style.left = '32.6%';
+ cr7_pregoon.style.top = '120px';
+ tribune.currentTime = 0.1;
+ setTimeout(() => {
+   tribune2.volume = 0.6;
+ tribune.play()
+ },100)
+
+ setTimeout(()=>{
+   if(count % 2 !== 0){
+ cr7_pregoon.style.display = 'none';
+ cr7_goon.style.display='block';
+  goon.addEventListener('click', () =>{
+   cum.play();
+orgasm.play()
+ })
+   }
+ },700)
+}
+  },600)
+}
+    },1500)
+   
+    go.style.background = 'linear-gradient(45deg, rgba(207, 64, 56, 1), rgba(228, 151, 17, 1)';
+    go.innerText = 'RESET';
+    cr7_moving.style.display = 'block';
+ cr7_moving.style.left ='47%';
+  cr7_moving.style.top ='140px';
+    cr7_stand_copy.style.display = 'none';
+    cr7_stand.style.display = 'none';
+    messi.style.display = 'block';
+    messi_stand.style.display = 'none';
+    messi.style.left='28%';
+   messi.style.top='140px';
+     }else{
+      count++;
+       go.style.background = 'linear-gradient(45deg, rgb(56, 207, 56), rgb(42, 165, 184)';
+    go.innerText = 'GO';
+    cr7_moving.style.display = 'none';
+ cr7_moving.style.left ='47%';
+  cr7_moving.style.top ='140px';
+    cr7_stand_copy.style.display = 'block';
+    cr7_stand.style.display = 'none';
+    messi.style.display = 'none';
+    messi_stand.style.display = 'block';
+    messi.style.left='28%';
+   messi.style.top='140px';
+    cr7_pregoon.style.display = 'none';
+ cr7_goon.style.display='none';
+    ball.style.display='none';
+    ball.style.left='47.4%';
+   ball.style.top='310px';
+     }
+    
+})
+
+
+ setspeed.addEventListener('click' , () => {
+
+   if(speedinput.value !== null ){
+      var speed='0';
+      if(parseInt(speedinput.value) < 1){
+ speed=0.5*(100*parseInt(speedinput.value));
+      }else{
+   speed=0.5/parseInt(speedinput.value);
+      }
+
+cr7_goon.style.animation = 'none';
+void cr7_goon.offsetWidth;
+cr7_goon.style.animation = `${speed}5s ease-out  normal infinite goon`;
+   }
+ })
+
+ siu.addEventListener('click' , () => {
+   siuu.currentTime = 4.75;
+  siuu.play()
+ })
+
+}
+
+init();
+</script>
+</body>
+</html>
