@@ -15,6 +15,7 @@ const goon = document.querySelector('.goon');
 const orgasm = document.querySelector('.orgasm')
 const tribune = document.querySelector('.tribune');
 const tribune2 = document.querySelector('.tribune2');
+const cum = document.querySelector('.cum')
 let count=0;
 
 function init(){
@@ -54,6 +55,7 @@ setTimeout(()=>{
  cr7_pregoon.style.display = 'none';
  cr7_goon.style.display='block';
   goon.addEventListener('click', () =>{
+   cum.play();
 orgasm.play()
  })
    }
@@ -119,6 +121,5 @@ cr7_goon.style.animation = `${speed}5s ease-out  normal infinite goon`;
  })
 
 }
-
 
 init();
